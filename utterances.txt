@@ -1,106 +1,463 @@
-PlayPause (play/pause/resume)
-
-Stop (stop/cancel/shut up)
-
-Skip (skip/next) (/song)
-Skip (listen to/play) next (/song)
-
-Prev (/listen to/play) previous (/song)
-
-StartOver (replay/start over)
-
-Home navigate home
-
-Back (navigate/go back)
-
-Up navigate up
-
-Down navigate down
-
-Right navigate right
-
-Left navigate left
-
-Select select
-
-Menu open menu
-
-PageUp navigate page up
-
-PageDown navigate page down
-
-Fullscreen (/toggle) fullscreen
-
-Mute (/toggle) (mute/unmute)
-
-SubtitlesOn (enable/turn on) subtitles
-SubtitlesOff (disable/turn off) subtitles
-SubtitlesNext (next/switch) (subtitles/subtitle language)
-SubtitlesPrevious previous (subtitles/subtitle language)
-
-AudioStreamNext (next/switch) audio (/stream)
-AudioStreamNext (next/switch) (/audio) language
-AudioStreamPrevious previous audio (/stream)
-AudioStreamPrevious previous (/audio) language
-
-CleanVideo clean (/video) library
-
-UpdateVideo update (/video) library
-
-CleanAudio clean (audio/music) library
-
-UpdateAudio update (audio/music) library
-
-ListenToArtist (play/listen to/shuffle) (/music by/artist) {Artist}
-
-ListenToPlaylist (play/listen to/shuffle) playlist {Playlist}
-ListenToPlaylist (play/listen to/shuffle) {Playlist} playlist
-
-ListenToPlaylistRecent (play/listen to/shuffle) (/playlist) recent
-ListenToPlaylistRecent (play/listen to/shuffle) (/playlist) recently added
-ListenToPlaylistRecent (play/listen to/shuffle) recent (/songs/music/playlist)
-ListenToPlaylistRecent (play/listen to/shuffle) recently added (/songs/music/playlist)
-
-PlayRandomMovie (play/watch) (/a) random (movie/film)
-
-PlayRandomEpisode (play/watch) (/a) (/random) episode of {Show}
-
-PlayNextEpisode (play/watch) (/the) next episode of {Show}
-
-PlayEpisode (play/watch) (season/series) {Season} episode {Episode} of {Show}
-
-PlayMovie (play/watch) movie {Movie}
-
-ContinueShow continue (/watching) (/last) show
-
-CheckNewShows (if there are/are there/do (we/i) have) (/any/some) new shows (/recorded) (/to watch) (/today/tonight)
-CheckNewShows (if there is/is there/do (we/i) have) a new show (/recorded) (/to watch) (/today/tonight)
-
-WhatNewShows what (/new) shows ((/do) (we/i/you) have/are (ready/waiting/recorded/there/on the (/media) server))
-
-NewShowInquiry if (there is/we have) a new (/episode of) {Show}
-NewShowInquiry if (there are/we have) any (/(/new )episodes of) {Show}
-NewShowInquiry if (there is/we have) {Show}
-
-PlayLatestEpisode (play/watch) (/the) (newest/latest) episode of {Show}
-
-PartyMode listen to random music
-PartyMode listen to all music
-PartyMode play random music
-PartyMode play all music
-PartyMode shuffle all music
-
-DoSearch search for {Show}
-DoSearch search for {Movie}
+WatchPVRBroadcast watch the program called {Broadcast}
+WatchPVRBroadcast play the program called {Broadcast}
+WatchPVRBroadcast find the broadcast called {Broadcast}
+WatchPVRBroadcast watch the broadcast called {Broadcast}
+WatchPVRBroadcast play the broadcast called {Broadcast}
+WatchPVRBroadcast look for the program called {Broadcast}
+WatchPVRBroadcast look for the broadcast called {Broadcast}
+WatchPVRBroadcast look for {Broadcast}
+WatchPVRBroadcast where is the program called {Broadcast}
+WatchPVRBroadcast where is the broadcast called {Broadcast}
+WatchPVRBroadcast where is {Broadcast}
+WatchPVRBroadcast find the program called {Broadcast}
+WatchPVRBroadcast find the broadcast called {Broadcast}
+WatchPVRBroadcast find {Broadcast}
+WatchPVRBroadcast switch to {Broadcast}
+WatchPVRBroadcast switch to the program called {Broadcast}
+WatchPVRBroadcast switch to the broadcast called {Broadcast}
+WatchPVRBroadcast show me {Broadcast}
+WatchPVRBroadcast show me something called {Broadcast}
+WatchPVRBroadcast show me anything called {Broadcast}
+WatchPVRBroadcast watch something called {Broadcast}
+WatchPVRBroadcast watch anything called {Broadcast}
+WatchPVRBroadcast show me the program called {Broadcast}
+WatchPVRBroadcast show me the broadcast called {Broadcast}
+WatchPVRBroadcast jump to {Broadcast}
+WatchPVRBroadcast change channel to {Broadcast}
+WatchPVRBroadcast change channel to watch {Broadcast}
+WatchPVRBroadcast change channel to play {Broadcast}
+AudioStreamNext next audio
+AudioStreamNext next audio language
+AudioStreamNext next audio stream
+AudioStreamNext next language
+AudioStreamNext switch audio
+AudioStreamNext switch audio language
+AudioStreamNext switch audio stream
+AudioStreamNext switch language
+AudioStreamPrevious previous audio
+AudioStreamPrevious previous audio language
+AudioStreamPrevious previous audio stream
+AudioStreamPrevious previous language
+Back go back
+Back navigate
+CheckNewShows are there any new shows
+CheckNewShows are there any new shows recorded
+CheckNewShows are there any new shows recorded to watch
+CheckNewShows are there any new shows recorded to watch today
+CheckNewShows are there any new shows recorded to watch tonight
+CheckNewShows are there any new shows recorded today
+CheckNewShows are there any new shows recorded tonight
+CheckNewShows are there any new shows to watch
+CheckNewShows are there any new shows to watch today
+CheckNewShows are there any new shows to watch tonight
+CheckNewShows are there any new shows today
+CheckNewShows are there any new shows tonight
+CheckNewShows are there new shows
+CheckNewShows are there new shows recorded
+CheckNewShows are there new shows recorded to watch
+CheckNewShows are there new shows recorded to watch today
+CheckNewShows are there new shows recorded to watch tonight
+CheckNewShows are there new shows recorded today
+CheckNewShows are there new shows recorded tonight
+CheckNewShows are there new shows to watch
+CheckNewShows are there new shows to watch today
+CheckNewShows are there new shows to watch tonight
+CheckNewShows are there new shows today
+CheckNewShows are there new shows tonight
+CheckNewShows are there some new shows
+CheckNewShows are there some new shows recorded
+CheckNewShows are there some new shows recorded to watch
+CheckNewShows are there some new shows recorded to watch today
+CheckNewShows are there some new shows recorded to watch tonight
+CheckNewShows are there some new shows recorded today
+CheckNewShows are there some new shows recorded tonight
+CheckNewShows are there some new shows to watch
+CheckNewShows are there some new shows to watch today
+CheckNewShows are there some new shows to watch tonight
+CheckNewShows are there some new shows today
+CheckNewShows are there some new shows tonight
+CheckNewShows do i have a new show
+CheckNewShows do i have a new show recorded
+CheckNewShows do i have a new show recorded to watch
+CheckNewShows do i have a new show recorded to watch today
+CheckNewShows do i have a new show recorded to watch tonight
+CheckNewShows do i have a new show recorded today
+CheckNewShows do i have a new show recorded tonight
+CheckNewShows do i have a new show to watch
+CheckNewShows do i have a new show to watch today
+CheckNewShows do i have a new show to watch tonight
+CheckNewShows do i have a new show today
+CheckNewShows do i have a new show tonight
+CheckNewShows do i have any new shows
+CheckNewShows do i have any new shows recorded
+CheckNewShows do i have any new shows recorded to watch
+CheckNewShows do i have any new shows recorded to watch today
+CheckNewShows do i have any new shows recorded to watch tonight
+CheckNewShows do i have any new shows recorded today
+CheckNewShows do i have any new shows recorded tonight
+CheckNewShows do i have any new shows to watch
+CheckNewShows do i have any new shows to watch today
+CheckNewShows do i have any new shows to watch tonight
+CheckNewShows do i have any new shows today
+CheckNewShows do i have any new shows tonight
+CheckNewShows do i have new shows
+CheckNewShows do i have new shows recorded
+CheckNewShows do i have new shows recorded to watch
+CheckNewShows do i have new shows recorded to watch today
+CheckNewShows do i have new shows recorded to watch tonight
+CheckNewShows do i have new shows recorded today
+CheckNewShows do i have new shows recorded tonight
+CheckNewShows do i have new shows to watch
+CheckNewShows do i have new shows to watch today
+CheckNewShows do i have new shows to watch tonight
+CheckNewShows do i have new shows today
+CheckNewShows do i have new shows tonight
+CheckNewShows do i have some new shows
+CheckNewShows do i have some new shows recorded
+CheckNewShows do i have some new shows recorded to watch
+CheckNewShows do i have some new shows recorded to watch today
+CheckNewShows do i have some new shows recorded to watch tonight
+CheckNewShows do i have some new shows recorded today
+CheckNewShows do i have some new shows recorded tonight
+CheckNewShows do i have some new shows to watch
+CheckNewShows do i have some new shows to watch today
+CheckNewShows do i have some new shows to watch tonight
+CheckNewShows do i have some new shows today
+CheckNewShows do i have some new shows tonight
+CheckNewShows do we have a new show
+CheckNewShows do we have a new show recorded
+CheckNewShows do we have a new show recorded to watch
+CheckNewShows do we have a new show recorded to watch today
+CheckNewShows do we have a new show recorded to watch tonight
+CheckNewShows do we have a new show recorded today
+CheckNewShows do we have a new show recorded tonight
+CheckNewShows do we have a new show to watch
+CheckNewShows do we have a new show to watch today
+CheckNewShows do we have a new show to watch tonight
+CheckNewShows do we have a new show today
+CheckNewShows do we have a new show tonight
+CheckNewShows do we have any new shows
+CheckNewShows do we have any new shows recorded
+CheckNewShows do we have any new shows recorded to watch
+CheckNewShows do we have any new shows recorded to watch today
+CheckNewShows do we have any new shows recorded to watch tonight
+CheckNewShows do we have any new shows recorded today
+CheckNewShows do we have any new shows recorded tonight
+CheckNewShows do we have any new shows to watch
+CheckNewShows do we have any new shows to watch today
+CheckNewShows do we have any new shows to watch tonight
+CheckNewShows do we have any new shows today
+CheckNewShows do we have any new shows tonight
+CheckNewShows do we have new shows
+CheckNewShows do we have new shows recorded
+CheckNewShows do we have new shows recorded to watch
+CheckNewShows do we have new shows recorded to watch today
+CheckNewShows do we have new shows recorded to watch tonight
+CheckNewShows do we have new shows recorded today
+CheckNewShows do we have new shows recorded tonight
+CheckNewShows do we have new shows to watch
+CheckNewShows do we have new shows to watch today
+CheckNewShows do we have new shows to watch tonight
+CheckNewShows do we have new shows today
+CheckNewShows do we have new shows tonight
+CheckNewShows do we have some new shows
+CheckNewShows do we have some new shows recorded
+CheckNewShows do we have some new shows recorded to watch
+CheckNewShows do we have some new shows recorded to watch today
+CheckNewShows do we have some new shows recorded to watch tonight
+CheckNewShows do we have some new shows recorded today
+CheckNewShows do we have some new shows recorded tonight
+CheckNewShows do we have some new shows to watch
+CheckNewShows do we have some new shows to watch today
+CheckNewShows do we have some new shows to watch tonight
+CheckNewShows do we have some new shows today
+CheckNewShows do we have some new shows tonight
+CheckNewShows if there are any new shows
+CheckNewShows if there are any new shows recorded
+CheckNewShows if there are any new shows recorded to watch
+CheckNewShows if there are any new shows recorded to watch today
+CheckNewShows if there are any new shows recorded to watch tonight
+CheckNewShows if there are any new shows recorded today
+CheckNewShows if there are any new shows recorded tonight
+CheckNewShows if there are any new shows to watch
+CheckNewShows if there are any new shows to watch today
+CheckNewShows if there are any new shows to watch tonight
+CheckNewShows if there are any new shows today
+CheckNewShows if there are any new shows tonight
+CheckNewShows if there are new shows
+CheckNewShows if there are new shows recorded
+CheckNewShows if there are new shows recorded to watch
+CheckNewShows if there are new shows recorded to watch today
+CheckNewShows if there are new shows recorded to watch tonight
+CheckNewShows if there are new shows recorded today
+CheckNewShows if there are new shows recorded tonight
+CheckNewShows if there are new shows to watch
+CheckNewShows if there are new shows to watch today
+CheckNewShows if there are new shows to watch tonight
+CheckNewShows if there are new shows today
+CheckNewShows if there are new shows tonight
+CheckNewShows if there are some new shows
+CheckNewShows if there are some new shows recorded
+CheckNewShows if there are some new shows recorded to watch
+CheckNewShows if there are some new shows recorded to watch today
+CheckNewShows if there are some new shows recorded to watch tonight
+CheckNewShows if there are some new shows recorded today
+CheckNewShows if there are some new shows recorded tonight
+CheckNewShows if there are some new shows to watch
+CheckNewShows if there are some new shows to watch today
+CheckNewShows if there are some new shows to watch tonight
+CheckNewShows if there are some new shows today
+CheckNewShows if there are some new shows tonight
+CheckNewShows if there is a new show
+CheckNewShows if there is a new show recorded
+CheckNewShows if there is a new show recorded to watch
+CheckNewShows if there is a new show recorded to watch today
+CheckNewShows if there is a new show recorded to watch tonight
+CheckNewShows if there is a new show recorded today
+CheckNewShows if there is a new show recorded tonight
+CheckNewShows if there is a new show to watch
+CheckNewShows if there is a new show to watch today
+CheckNewShows if there is a new show to watch tonight
+CheckNewShows if there is a new show today
+CheckNewShows if there is a new show tonight
+CheckNewShows is there a new show
+CheckNewShows is there a new show recorded
+CheckNewShows is there a new show recorded to watch
+CheckNewShows is there a new show recorded to watch today
+CheckNewShows is there a new show recorded to watch tonight
+CheckNewShows is there a new show recorded today
+CheckNewShows is there a new show recorded tonight
+CheckNewShows is there a new show to watch
+CheckNewShows is there a new show to watch today
+CheckNewShows is there a new show to watch tonight
+CheckNewShows is there a new show today
+CheckNewShows is there a new show tonight
+CleanAudio clean audio library
+CleanAudio clean music library
+CleanVideo clean library
+CleanVideo clean video library
+ContinueShow continue last show
+ContinueShow continue show
+ContinueShow continue watching last show
+ContinueShow continue watching show
+CurrentPlayItemInquiry what audio is currently playing
+CurrentPlayItemInquiry what audio is playing
+CurrentPlayItemInquiry what audio is this
+CurrentPlayItemInquiry what episode is currently playing
+CurrentPlayItemInquiry what episode is playing
+CurrentPlayItemInquiry what episode is this
+CurrentPlayItemInquiry what is currently playing
+CurrentPlayItemInquiry what is playing
+CurrentPlayItemInquiry what is this
+CurrentPlayItemInquiry what movie is currently playing
+CurrentPlayItemInquiry what movie is playing
+CurrentPlayItemInquiry what movie is this
+CurrentPlayItemInquiry what show is currently playing
+CurrentPlayItemInquiry what show is playing
+CurrentPlayItemInquiry what show is this
+CurrentPlayItemInquiry what song is currently playing
+CurrentPlayItemInquiry what song is playing
+CurrentPlayItemInquiry what song is this
+CurrentPlayItemInquiry what video is currently playing
+CurrentPlayItemInquiry what video is playing
+CurrentPlayItemInquiry what video is this
 DoSearch search for {Artist}
-
-CurrentPlayItemInquiry what (/song/audio/video/movie/episode/show) is (this/playing/currently playing)
-
-Hibernate (hibernate/deep sleep) (/system)
-Reboot reboot (/system)
-Shutdown shut down (/system)
-Suspend (suspend/sleep) (/system)
+DoSearch search for {Movie}
+DoSearch search for {Show}
+Down navigate down
+EjectMedia eject
+EjectMedia eject audio disc
+EjectMedia eject bluray
+EjectMedia eject bluray disc
+EjectMedia eject cd
+EjectMedia eject disc
+EjectMedia eject dvd
+EjectMedia eject media
+Fullscreen fullscreen
+Fullscreen toggle fullscreen
+Home navigate home
+Hibernate hibernate
+Hibernate hibernate system
+Hibernate deep sleep
+Hibernate deep sleep system
+Left navigate left
+ListenToArtist listen to artist {Artist}
+ListenToArtist listen to music by {Artist}
+ListenToArtist listen to {Artist}
+ListenToArtist shuffle artist {Artist}
+ListenToArtist shuffle music by {Artist}
+ListenToArtist shuffle {Artist}
+ListenToArtist play artist {Artist}
+ListenToArtist play music by {Artist}
+ListenToPlaylist listen to playlist {Playlist}
+ListenToPlaylist listen to {Playlist} playlist
+ListenToPlaylist play playlist {Playlist}
+ListenToPlaylist play {Playlist} playlist
+ListenToPlaylist shuffle playlist {Playlist}
+ListenToPlaylist shuffle {Playlist} playlist
+ListenToPlaylistRecent listen to playlist recent
+ListenToPlaylistRecent listen to playlist recently added
+ListenToPlaylistRecent listen to recent
+ListenToPlaylistRecent listen to recent
+ListenToPlaylistRecent listen to recent music
+ListenToPlaylistRecent listen to recent playlist
+ListenToPlaylistRecent listen to recent songs
+ListenToPlaylistRecent listen to recently added
+ListenToPlaylistRecent listen to recently added
+ListenToPlaylistRecent listen to recently added music
+ListenToPlaylistRecent listen to recently added playlist
+ListenToPlaylistRecent listen to recently added songs
+ListenToPlaylistRecent play playlist recent
+ListenToPlaylistRecent play playlist recently added
+ListenToPlaylistRecent play recent
+ListenToPlaylistRecent play recent
+ListenToPlaylistRecent play recent music
+ListenToPlaylistRecent play recent playlist
+ListenToPlaylistRecent play recent songs
+ListenToPlaylistRecent play recently added
+ListenToPlaylistRecent play recently added
+ListenToPlaylistRecent play recently added music
+ListenToPlaylistRecent play recently added playlist
+ListenToPlaylistRecent play recently added songs
+ListenToPlaylistRecent shuffle playlist recent
+ListenToPlaylistRecent shuffle playlist recently added
+ListenToPlaylistRecent shuffle recent
+ListenToPlaylistRecent shuffle recent
+ListenToPlaylistRecent shuffle recent music
+ListenToPlaylistRecent shuffle recent playlist
+ListenToPlaylistRecent shuffle recent songs
+ListenToPlaylistRecent shuffle recently added
+ListenToPlaylistRecent shuffle recently added
+ListenToPlaylistRecent shuffle recently added music
+ListenToPlaylistRecent shuffle recently added playlist
+ListenToPlaylistRecent shuffle recently added songs
+Menu open menu
+Mute mute
+Mute unmute
+Mute toggle mute
+NewShowInquiry if there are any episodes of {Show}
+NewShowInquiry if there are any new episodes of {Show}
+NewShowInquiry if there are any {Show}
+NewShowInquiry if there is a new episode of {Show}
+NewShowInquiry if there is a new {Show}
+NewShowInquiry if there is {Show}
+NewShowInquiry if we have a new episode of {Show}
+NewShowInquiry if we have a new {Show}
+NewShowInquiry if we have any episodes of {Show}
+NewShowInquiry if we have any new episodes of {Show}
+NewShowInquiry if we have any {Show}
+NewShowInquiry if we have {Show}
+PageDown navigate page down
+PageUp navigate page up
+PartyMode listen to all music
+PartyMode listen to random music
+PartyMode play all music
+PartyMode play random music
+PartyMode shuffle all music
+PlayEpisode play season {Season} episode {Episode} of {Show}
+PlayEpisode play series {Season} episode {Episode} of {Show}
+PlayEpisode watch season {Season} episode {Episode} of {Show}
+PlayEpisode watch series {Season} episode {Episode} of {Show}
+PlayLatestEpisode play latest episode of {Show}
+PlayLatestEpisode play newest episode of {Show}
+PlayLatestEpisode play the latest episode of {Show}
+PlayLatestEpisode play the newest episode of {Show}
+PlayLatestEpisode watch latest episode of {Show}
+PlayLatestEpisode watch newest episode of {Show}
+PlayLatestEpisode watch the latest episode of {Show}
+PlayLatestEpisode watch the newest episode of {Show}
+PlayMovie play movie {Movie}
+PlayMovie watch movie {Movie}
+PlayNextEpisode play next episode of {Show}
+PlayNextEpisode play the next episode of {Show}
+PlayNextEpisode watch next episode of {Show}
+PlayNextEpisode watch the next episode of {Show}
+PlayPause pause
+PlayPause play
+PlayPause resume
+PlayRandomEpisode play a episode of {Show}
+PlayRandomEpisode play a random episode of {Show}
+PlayRandomEpisode play episode of {Show}
+PlayRandomEpisode play random episode of {Show}
+PlayRandomEpisode watch a episode of {Show}
+PlayRandomEpisode watch a random episode of {Show}
+PlayRandomEpisode watch episode of {Show}
+PlayRandomEpisode watch random episode of {Show}
+PlayRandomMovie play a random film
+PlayRandomMovie play a random movie
+PlayRandomMovie play random film
+PlayRandomMovie play random movie
+PlayRandomMovie watch a random film
+PlayRandomMovie watch a random movie
+PlayRandomMovie watch random film
+PlayRandomMovie watch random movie
+Prev previous
+Prev previous song
+Reboot reboot
+Reboot reboot system
+Prev play previous song
+Prev listen to previous song
+Right navigate right
+Select select
+Shutdown shut down
+Shutdown shut down system
+Skip next
+Skip next song
+Skip play next
+Skip play next song
+Skip listen to next
+Skip listen to next song
+Skip skip
+Skip skip song
+StartOver replay
+StartOver start over
+Stop cancel
+Stop shut up
+Stop stop
+SubtitlesOn enable subtitles
+SubtitlesOn turn on subtitles
+SubtitlesOff disable subtitles
+SubtitlesOff turn off subtitles
+SubtitlesNext next subtitles
+SubtitlesNext next subtitle language
+SubtitlesNext switch subtitles
+SubtitlesNext switch subtitle language
+SubtitlesPrevious previous subtitles
+SubtitlesPrevious previous subtitle language
+Suspend suspend
+Suspend suspend system
+Suspend sleep
+Suspend sleep system
 Suspend put system to sleep
 Suspend go to sleep
-
-EjectMedia eject (/media/disc/audio disc/bluray/bluray disc/cd/dvd)
+Up navigate up
+UpdateAudio update audio library
+UpdateAudio update music library
+UpdateVideo update library
+UpdateVideo update video library
+WhatNewShows what new shows are on the media server
+WhatNewShows what new shows are on the server
+WhatNewShows what new shows are ready
+WhatNewShows what new shows are recorded
+WhatNewShows what new shows are there
+WhatNewShows what new shows are waiting
+WhatNewShows what new shows do i have
+WhatNewShows what new shows do we have
+WhatNewShows what new shows do you have
+WhatNewShows what new shows i have
+WhatNewShows what new shows we have
+WhatNewShows what new shows you have
+WhatNewShows what shows are on the media server
+WhatNewShows what shows are on the server
+WhatNewShows what shows are ready
+WhatNewShows what shows are recorded
+WhatNewShows what shows are there
+WhatNewShows what shows are waiting
+WhatNewShows what shows do i have
+WhatNewShows what shows do we have
+WhatNewShows what shows do you have
+WhatNewShows what shows i have
+WhatNewShows what shows we have
+WhatNewShows what shows you have
+WatchPVRChannel watch {Channel}
+WatchPVRChannel play {Channel}

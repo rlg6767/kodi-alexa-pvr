@@ -104,6 +104,7 @@ def RPCString(method, params=None):
     j["params"] = params
   return json.dumps(j)
 
+
 # Match heard string to something in the results
 def matchHeard(heard, results, lookingFor='label'):
   located = None
@@ -114,8 +115,15 @@ def matchHeard(heard, results, lookingFor='label'):
   heard_list = set([x for x in heard.split() if x not in STOPWORDS])
 
   for result in results:
+    ascii_name = result[lookingFor]
     # Strip out non-ascii symbols and lowercase it
     ascii_name = result[lookingFor].encode('ascii', 'replace')
+    ascii_name = re.sub(r'\bone\b', '1', ascii_name, flags=re.IGNORECASE)
+    ascii_name = re.sub(r'\btwo\b', '2', ascii_name, flags=re.IGNORECASE)
+    ascii_name = re.sub(r'\bthree\b', '3', ascii_name, flags=re.IGNORECASE)
+    ascii_name = re.sub(r'\bfour\b', '4', ascii_name, flags=re.IGNORECASE)
+    ascii_name = re.sub(r'\bfive\b', '5', ascii_name, flags=re.IGNORECASE)
+    ascii_name = re.sub(r'\+', ' plus ', ascii_name, flags=re.IGNORECASE)
     result_name = str(ascii_name).lower().translate(None, string.punctuation)
 
     # Direct comparison
@@ -134,6 +142,12 @@ def matchHeard(heard, results, lookingFor='label'):
       located = result
       break
 
+    # Remove spaces
+    removed_paren = re.sub(r'\ ', '', ascii_name).rstrip().lower().translate(None, string.punctuation)
+    if heard == removed_paren:
+      located = result
+      break
+
   if not located:
     print 'not located on the first round of checks'
     sys.stdout.flush()
@@ -141,6 +155,12 @@ def matchHeard(heard, results, lookingFor='label'):
     for result in results:
       # Strip out non-ascii symbols and lowercase it
       ascii_name = result[lookingFor].encode('ascii', 'replace')
+      ascii_name = re.sub(r'\bone\b', '1', ascii_name, flags=re.IGNORECASE)
+      ascii_name = re.sub(r'\btwo\b', '2', ascii_name, flags=re.IGNORECASE)
+      ascii_name = re.sub(r'\bthree\b', '3', ascii_name, flags=re.IGNORECASE)
+      ascii_name = re.sub(r'\bfour\b', '4', ascii_name, flags=re.IGNORECASE)
+      ascii_name = re.sub(r'\bfive\b', '5', ascii_name, flags=re.IGNORECASE)
+      ascii_name = re.sub(r'\+', ' plus ', ascii_name, flags=re.IGNORECASE)
       result_name = str(ascii_name).lower().translate(None, string.punctuation)
 
       #print "trying '%s'" % (heard_minus_the)
@@ -159,7 +179,7 @@ def matchHeard(heard, results, lookingFor='label'):
       #print 'matched words: '
       #sys.stdout.flush()
       if len(matched_words) > 0:
-        print matched_words
+        #print matched_words
         sys.stdout.flush()
         percentage = float(len(matched_words)) / float(len(heard_list))
         if percentage > float(0.6):
@@ -581,3 +601,15 @@ def GetVideoPlayStatus():
         cur = '%02d:%02d' % (data['result']['time']['minutes'], data['result']['time']['seconds'])
       return {'state':'play' if speed > 0 else 'pause', 'time':cur, 'total':total, 'pct':data['result']['percentage']}
   return {'state':'stop'}
+
+def GetPVRChannels():
+  data = SendCommand(RPCString("PVR.GetChannels", {"channelgroupid":"alltv"}))
+  return data
+
+def GetPVRBroadcasts(channelid):
+  data = SendCommand(RPCString("PVR.GetBroadcasts", {"channelid": int(channelid), "properties" : ["endtime"]}))
+  return data
+
+def WatchPVRChannel(channelid):
+  return SendCommand(RPCString("Player.Open", {"item": {"channelid": int(channelid)}}))
+

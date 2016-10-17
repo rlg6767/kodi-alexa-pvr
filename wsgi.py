@@ -1,5 +1,7 @@
 #!/usr/bin/python
 import os
+from fuzzywuzzy import fuzz
+from fuzzywuzzy import process
 
 """
 The MIT License (MIT)
@@ -819,6 +821,215 @@ def alexa_what_new_episodes(slots):
   return build_alexa_response(answer)
 
 
+PVR_CHANNELS_BY_LABEL = None
+PVR_CHANNELS_BY_ID = None
+PVR_BROADCASTS = None
+CHANNEL_FIXES = [
+  ['BBC One Yk & Li','bbc 1 yorkshire and '],
+  ['ITV2+1','itv 2 plus 1'],
+  ['BBC One S West','bbc 1 south west'],
+  ['Film4+1','film 4 plus 1'],
+  ['ITV4+1','itv 4 plus 1'],
+  ['Channel 5+1','channel 5 plus 1'],
+  ['5STAR','5 star'],
+  ['BBC One HD','bbc 1 hd'],
+  ['My5','my 5'],
+  ['True Ent+1','true end plus 1'],
+  ['Channel 4+1','channel 4 plus 1'],
+  ['BBC One S East','bbc 1 south east'],
+  ['BBC One Wales','bbc 1 wales'],
+  ['BBC One NI HD','bbc 1 northern ireland hd'],
+  ['5 USA+1','5 usa plus 1'],
+  ['Film4','film 4'],
+  ['Fashion One','fashion 1'],
+  ['BBC One East W','bbc 1 east'],
+  ['BBC One Oxford','bbc 1 oxford'],
+  ['ITV3+1','itv 3 plus 1'],
+  ['Channel 5HD','channel 5 hd'],
+  ['BBC One East E','bbc 1 east'],
+  ['BBC Two Wales','bbc 2 wales'],
+  ['movies4men','movies for men'],
+  ['FRANCE Eng','france english'],
+  ['BBC One South','bbc 1 south'],
+  ['More4','more 4'],
+  ['More4 +1','more 4 plus 1'],
+  ['POP+1','pop plus 1'],
+  ['E4','e 4'],
+  ['TrueChrstms+1','true christmas plus 1'],
+  ['BBC Two HD','bbc 2 hd'],
+  ['BBC One ScotHD','bbc 1 scotland hd'],
+  ['BBC One West','bbc 1 west'],
+  ['Pick+1','pick plus 1'],
+  ['YourTV','your tv'],
+  ['CBS Reality+1','cbs reality plus 1'],
+  ['ITV4','itv 4'],
+  ['4seven','4 7'],
+  ['ITV3','itv 3'],
+  ['ITV2','itv 2'],
+  ['Travel Ch+1','travel channel plus 1'],
+  ['Channel 4', 'channel 4'],
+  ['Channel 4 +1', 'channel 4 plus 1'],
+  ['E4+1','e 4 plus 1'],
+  ['BBC One E Mid','bbc 1 east midlands'],
+  ['S4C HD','s 4 c hd'],
+  ['BBC One Lon','bbc 1'],
+  ['BBC Two Scot','bbc 2 scotland'],
+  ['Challenge+1','challenge plus 1'],
+  ['BBC One NI','bbc 1 northern ireland'],
+  ['BBC One NE & C','bbc 1 northern ireland and counties'],
+  ['BBC One Wal HD','bbc 1 wales hd'],
+  ['BBC One Yorks','bbc 1 yorkshire'],
+  ['ITVBe','itv be'],
+  ['ITVBe+1','itv be plus 1'],
+  ['BBC Four','bbc 4'],
+  ['BBC One Scot','bbc 1 scotland'],
+  ['BBC Two Eng','bbc 2'],
+  ['True Crime+1','true crime plus 1'],
+  ['5STAR+1','5 star plus 1'],
+  ['mov4men+1','movies for men plus one'],
+  ['horror ch+1','horro channel plus 1'],
+  ['BBC One N West','bbc 1 north west'],
+  ['BBC RB1','bbc rb 1'],
+  ['BBC One W Mid','bbc 1 west midlands'],
+  ['BBC Four HD','bbc 4 hd'],
+  ['Food Netwrk+1','food network plus 1'],
+  ['BBC One CI','bbc 1 c i'],
+  ['BBC Two NI','bbc 2 northern ireland']
+]
+
+PVR_SEARCH_CHANNELS = [
+  'bbc 1 hd',
+  'bbc 2 hd',
+  'bbc 4 hd',
+  'itv hd',
+  'itv plus 1',
+  'itv 2',
+  'itv 2 plus 1',
+  'itv 3',
+  'itv 3 plus 1',
+  'itv 4',
+  'itv 4 plus 1',
+  'itv be',
+  'itv be plus 1',
+  'channel 4 hd',
+  'channel 4 plus 1',
+  'my5',
+  'channel 5 hd',
+  'channel 5 plus 1',
+  'e 4',
+  'e 4 plus 1',
+  'more 4',
+  'more 4 plus 1',
+  'film 4',
+  'film 4 plus 1'
+  ]
+
+
+def fix_channel_label(label):
+  for fix in CHANNEL_FIXES:
+    if label.lower() == fix[0].lower():
+      return fix[1].lower()
+  return label.lower()
+
+
+
+def alexa_watch_pvr_channel(slots):
+  print('raw slots #')
+  print(slots)
+  heard_pvr_channel = str(slots['Channel']['value'])
+
+  print('Trying to play the PVR channel %s' % (heard_pvr_channel))
+  sys.stdout.flush()
+
+  global PVR_CHANNELS_BY_LABEL
+  if not PVR_CHANNELS_BY_LABEL:
+    pvr_channels_response = kodi.GetPVRChannels()
+    if 'result' in pvr_channels_response and 'channels' in pvr_channels_response['result']:
+      PVR_CHANNELS_BY_LABEL = {fix_channel_label(channel['label']): channel['channelid'] for channel in pvr_channels_response['result']['channels']}
+    else:
+      return build_alexa_response('Error parsing results.')
+
+  located = process.extract(heard_pvr_channel, PVR_CHANNELS_BY_LABEL.keys(), scorer=fuzz.QRatio, limit=1)
+  channel, score = located[0]
+
+  if score > 75:
+    kodi.WatchPVRChannel(PVR_CHANNELS_BY_LABEL[channel.lower()])
+    #kodi.ClearVideoPlaylist()
+    #kodi.PrepMoviePlaylist(located['movieid'])
+    #kodi.StartVideoPlaylist()
+
+    return build_alexa_response('Playing PVR channel %s' % (channel))
+  else:
+    return build_alexa_response('Could not find a PVR channel called %s' % (heard_pvr_channel))
+
+
+def alexa_watch_pvr_broadcast(slots):
+  print(slots)
+  sys.stdout.flush()
+  #heard_pvr_broadcast = str(slots['Broadcasts']['value']).lower().translate(None, string.punctuation)
+  heard_pvr_broadcast = str(slots['Broadcast']['value'])
+
+  print('Trying to play the PVR broadcast %s' % (heard_pvr_broadcast))
+  sys.stdout.flush()
+
+  global PVR_CHANNELS_BY_ID
+  if not PVR_CHANNELS_BY_ID:
+    pvr_channels_response = kodi.GetPVRChannels()
+    if 'result' in pvr_channels_response and 'channels' in pvr_channels_response['result']:
+      PVR_CHANNELS_BY_ID = {channel['channelid'] : fix_channel_label(channel['label']) for channel in pvr_channels_response['result']['channels']}
+    else:
+      return build_alexa_response('Error parsing results.')
+
+  global PVR_BROADCASTS
+  if not PVR_BROADCASTS:
+    PVR_BROADCASTS = {}
+    for id, channel in PVR_CHANNELS_BY_ID.iteritems():
+      try:
+        PVR_SEARCH_CHANNELS.index(channel)
+        pvr_broadcasts_response = kodi.GetPVRBroadcasts(id)
+
+        if 'result' in pvr_broadcasts_response:
+          if 'broadcasts' in pvr_broadcasts_response['result']:
+            pvr_broadcasts = pvr_broadcasts_response['result']['broadcasts']
+            PVR_BROADCASTS[id] = pvr_broadcasts
+        else:
+          return build_alexa_response('Error parsing broadcast results.')
+      except ValueError:
+        None
+
+  #print(PVR_BROADCASTS)
+  candidate_broadcasts = []
+  for channelid, broadcasts in PVR_BROADCASTS.items():
+    response = process.extract(heard_pvr_broadcast, [broadcast['label'] for broadcast in broadcasts], scorer=fuzz.QRatio, limit=1)
+
+    if len(response) != 0 and response[0][1] > 75:
+      for broadcast in broadcasts:
+        if broadcast['label'] == response[0][0]:
+          candidate_broadcasts.append({"channel":channelid, "broadcast":broadcast})
+
+  best_candidate = None
+
+  if len(candidate_broadcasts) > 0:
+    #print(candidate_broadcasts)
+    for candidate in candidate_broadcasts:
+      # all dates in the response appear to be UTC
+      candidate_endtime = datetime.datetime.strptime(candidate['broadcast']['endtime'], "%Y-%m-%d %H:%M:%S",)
+      if candidate_endtime > datetime.datetime.utcnow() and (best_candidate is None or candidate_endtime < best_candidate_endtime):
+        best_candidate = candidate
+        best_candidate_endtime = candidate_endtime
+
+  if best_candidate:
+    #print(best_candidate)
+    kodi.WatchPVRChannel(best_candidate['channel'])
+    # kodi.ClearVideoPlaylist()
+    # kodi.PrepMoviePlaylist(located['movieid'])
+    # kodi.StartVideoPlaylist()
+
+    return build_alexa_response('Playing %s on %s' % (best_candidate['broadcast']['label'], PVR_CHANNELS_BY_ID[best_candidate['channel']]))
+  else:
+    return build_alexa_response('Could not find a PVR broadcast called %s' % (heard_pvr_broadcast))
+
+
 # What should the Echo say when you just open your app instead of invoking an intent?
 
 def prepare_help_message():
@@ -876,7 +1087,9 @@ INTENTS = [
   ['Reboot', alexa_reboot],
   ['Shutdown', alexa_shutdown],
   ['Suspend', alexa_suspend],
-  ['EjectMedia', alexa_ejectmedia]
+  ['EjectMedia', alexa_ejectmedia],
+  ['WatchPVRChannel', alexa_watch_pvr_channel],
+  ['WatchPVRBroadcast', alexa_watch_pvr_broadcast]
 ]
 
 def do_alexa(environ, start_response):

@@ -1,4 +1,4 @@
-# Alexa integration with Kodi
+# Alexa integration with Kodi (including PVR)
 
 This is a fork from [m0ngr31/kodi-alexa](https://github.com/m0ngr31/kodi-alexa) which is forked from [this project from Maker Musings](http://www.makermusings.com/2015/08/22/home-automation-with-amazon-echo-apps-part-2). I've added the start of PVR functionality.
 
