@@ -1,23 +1,10 @@
 # Alexa integration with Kodi
 
-I'm forking the base code off of [this project from Maker Musings](http://www.makermusings.com/2015/08/22/home-automation-with-amazon-echo-apps-part-2). It originally supported checking to see how many new episodes there are and you can ask it if there are any new episodes for a certain show.
+This is a fork from [m0ngr31/kodi-alexa](https://github.com/m0ngr31/kodi-alexa) which is forked from [this project from Maker Musings](http://www.makermusings.com/2015/08/22/home-automation-with-amazon-echo-apps-part-2). I've added the start of PVR functionality.
 
 I've expanded it to support the following features:
-  - Basic navigation (Up/Down, Left/Right, Page Up/Down, Select, Back, Open Menu) 
-  - Playback control (Play/Pause, Skip, Previous, Stop)
-  - Shuffle music by artist
-  - Play random unwatched episode of TV show
-  - Play random unwatched movie
-  - Play specific episode of a TV show ('Play season 4 episode 10 of The Office')
-  - Play specific movie
-  - Continue watching next episode of last show that was watched
-  - Play next episode of a show
-  - Play newest episode of a show
-  - Clean/Update video and audio sources
-  - "What's playing?" functionality for music, movies, and TV SHOWS
-  - Searching for something in your library
-  - "Party mode" for music (shuffle all)
-  - Play audio playlists
+  - Switch channel by channel name
+  - Switch channel by 'broadcast' (program) name
 
 ### Kodi Setup
 
@@ -29,7 +16,7 @@ Make sure to keep track of the port, username, and password you are using. Now, 
 
 Once you get that setup, you'll have to have your own server to handle the requests and pass them to your Kodi box. Since this is a Python application, it has several ways that you can run it.
 
-Here are a few options to get started:
+I have ben using AW Lambda but m0ngr31 offers the following options to host your Alexa skill
  - [Heroku](#heroku)
  - [AWS Lambda](#aws-lambda)
  - [Docker](#docker)
@@ -115,13 +102,15 @@ You'll just need to stick the URL from your app in the Endpoint field. If you ar
 
 On the next tab, you'll have to paste the `alexa.intents` file into the "Intent Schema" field, and paste the `alexa.utterances` file in the "Sample Utterances" field.
 
-The tricky part is generating the Slots in the middle section. You need to create 4 different slots:
+The tricky part is generating the Slots in the middle section. You need to several slots different slots:
  - MOVIES
  - SHOWS
  - MUSICARTISTS
  - MUSICPLAYLISTS
+ - CHANNELS
+ - BROADCASTS
 
-To make it as easy as possible, I wrote a little webapp that will give you the information you need: [here.](https://slot-generator.herokuapp.com/). You can also get the information from running `python generate_custom_slots.py` in the repo directory if you have python installed. This will create txt files with the relevant information. If one of your slots is empty, you can just enter the word 'Empty' or something so that it'll save.
+To make it as easy as possible, you can also get the information from running `python generate_custom_slots.py` in the repo directory if you have python installed. This will create txt files with the relevant information. If one of your slots is empty, you can just enter the word 'Empty' or something so that it'll save.
 
 ![2nd tab](http://i.imgur.com/WQYExdK.png)
 
