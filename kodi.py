@@ -91,7 +91,7 @@ def SendCommand(command):
 
   print KODI
   
-  url = "http://%s:%d/jsonrpc" % (KODI, PORT)
+  url = "https://%s:%d/jsonrpc" % (KODI, PORT)
   try:
     r = requests.post(url, data=command, auth=(USER, PASS))
   except:
